@@ -1,4 +1,4 @@
-# NAIRR ML Workflow: From Laptop Thinking to Real Infrastructure
+# NAIRR ML Workflows
 
 This repository demonstrates an end-to-end, reproducible ML workflow executed on NAIRR-supported cyberinfrastrcuture with a main focus on extracting execution evidence, reducing onboarding friction, and translation across compute environments.
 
