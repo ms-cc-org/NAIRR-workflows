@@ -28,3 +28,13 @@ data/
 .key
 
 
+!outputs/
+!outputs/reports/
+!outputs/reports/*.ipynb
+!outputs/metrics/
+!outputs/metrics/*.csv
+!outputs/metrics/*.json
+!outputs/models/
+!outputs/models/*
+
+7890488/
