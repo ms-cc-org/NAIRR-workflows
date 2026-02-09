@@ -46,7 +46,6 @@ If you want proof that the workflow ran start-to-finish on JetStream2, this is i
 This includes runtime information and execution logs captured during the run. No `estimation`. No `expectation`. Just what the system actually did.
 
 ### CPU-only confirmation
-- **File:** [`results/benchmarks/gpu_metrics.csv`](results/benchmarks/gpu_metrics.csv)
 - **File:** [`results/benchmarks/nvidia_smi.txt`](results/benchmarks/nvidia_smi.txt)
 
 These show that this JetStream2 instance did **not** have an active NVIDIA GPU.  
