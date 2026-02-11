@@ -1,7 +1,7 @@
 DATE
-2026-02-09T20:08:57+00:00
+2026-02-11T04:15:45+00:00
 GIT_COMMIT
-4eaf66cc0e5117aeef4b8ecb4c46f2cb60c1f2c5
+7a37fee74e5ddfd58750be89dede7c8576cc7baa
 HOST
 nairr-proposal
 OS
@@ -53,24 +53,27 @@ Vulnerability Tsx async abort:           Not affected
 Vulnerability Vmscape:                   Not affected
 MEM
                total        used        free      shared  buff/cache   available
-Mem:            58Gi       2.4Gi        40Gi        16Mi        16Gi        56Gi
+Mem:            58Gi       2.9Gi        39Gi        16Mi        17Gi        55Gi
 Swap:             0B          0B          0B
 DISK
-Filesystem                                                                                                                                                                                       Size  Used Avail Use% Mounted on
-tmpfs                                                                                                                                                                                            5.9G  1.8M  5.9G   1% /run
-efivarfs                                                                                                                                                                                         256K   19K  233K   8% /sys/firmware/efi/efivars
-/dev/sda1                                                                                                                                                                                         58G   24G   34G  42% /
-tmpfs                                                                                                                                                                                             30G     0   30G   0% /dev/shm
-tmpfs                                                                                                                                                                                            5.0M     0  5.0M   0% /run/lock
-/dev/sda16                                                                                                                                                                                       881M  177M  643M  22% /boot
-/dev/sda15                                                                                                                                                                                       105M  6.2M   99M   6% /boot/efi
-tmpfs                                                                                                                                                                                            5.9G  128K  5.9G   1% /run/user/1001
-tmpfs                                                                                                                                                                                            5.9G   76K  5.9G   1% /run/user/1000
-149.165.158.38:6789,149.165.158.22:6789,149.165.158.54:6789,149.165.158.70:6789,149.165.158.86:6789:/volumes/_nogroup/b7112570-f7cb-4bd2-8c0e-39b08609b9fd/01aa9d72-69bf-4250-9245-2eaddcdb251d  9.8T  709G  9.1T   8% /software
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           5.9G  1.8M  5.9G   1% /run
+efivarfs        256K   19K  233K   8% /sys/firmware/efi/efivars
+/dev/sda1        58G   25G   34G  43% /
+tmpfs            30G     0   30G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+/dev/sda16      881M  177M  643M  22% /boot
+/dev/sda15      105M  6.2M   99M   6% /boot/efi
+tmpfs           5.9G  124K  5.9G   1% /run/user/1001
+tmpfs           5.9G   76K  5.9G   1% /run/user/1000
 NVIDIA_SMI
 NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
 
 CONDA
 conda 25.11.1
 ACTIVE_ENV
-
+js2-gpu-forecast
+JUPYTER
+/home/ubuntu/miniconda3/envs/js2-gpu-forecast/bin/jupyter
+PYTHON
+/home/ubuntu/miniconda3/envs/js2-gpu-forecast/bin/python
