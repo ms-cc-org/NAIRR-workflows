@@ -1,0 +1,78 @@
+DATE
+2026-02-17T11:38:56-05:00
+GIT_COMMIT
+8c18433db02ef0d563833a10acb00ab4a33f538a
+HOST
+v005.ib.bridges2.psc.edu
+OS
+Linux v005.ib.bridges2.psc.edu 4.18.0-553.22.1.el8_10.x86_64 #1 SMP Wed Sep 11 18:02:00 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux
+CPU
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              40
+On-line CPU(s) list: 0-39
+Thread(s) per core:  1
+Core(s) per socket:  20
+Socket(s):           2
+NUMA node(s):        2
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz
+Stepping:            7
+CPU MHz:             3403.655
+BogoMIPS:            5000.00
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            28160K
+NUMA node0 CPU(s):   0-19
+NUMA node1 CPU(s):   20-39
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+MEM
+              total        used        free      shared  buff/cache   available
+Mem:          503Gi        42Gi       331Gi       3.0Gi       129Gi       453Gi
+Swap:         699Gi       104Mi       699Gi
+DISK
+Filesystem                                Size  Used Avail Use% Mounted on
+/dev/nvme0n1p3                            295G   33G  247G  12% /
+tmpfs                                     252G     0  252G   0% /sys/fs/cgroup
+devtmpfs                                  252G     0  252G   0% /dev
+tmpfs                                     252G  685M  252G   1% /dev/shm
+tmpfs                                     252G  651M  252G   1% /run
+tmpfs                                      51G     0   51G   0% /run/user/94020
+tmpfs                                      51G     0   51G   0% /run/user/91877
+/dev/nvme0n1p1                            511M  2.2M  509M   1% /boot/efi
+/dev/md0                                  6.1T   43G  6.0T   1% /local
+10.8.8.18@o2ib20:10.8.8.19@o2ib20:/ocean   16P   15P  1.7P  90% /ocean
+10.8.8.36@o2ib20:10.8.8.37@o2ib20:/jet    347T  106T  238T  31% /jet
+NVIDIA_SMI
+Tue Feb 17 11:35:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla V100-SXM2-32GB           On  |   00000000:8A:00.0 Off |                    0 |
+| N/A   33C    P0             40W /  300W |       1MiB /  32768MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+CONDA
+conda 24.9.2
+ACTIVE_ENV
+bridges2-forecast
+PYTHON
+/jet/home/pnara/.conda/envs/bridges2-forecast/bin/python
+JUPYTER
+/jet/home/pnara/.conda/envs/bridges2-forecast/bin/jupyter

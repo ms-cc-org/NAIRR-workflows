@@ -1,0 +1,25 @@
+[NbConvertApp] Converting notebook forecasting.ipynb to notebook
+[NbConvertApp] Writing 45068 bytes to outputs/reports/forecasting.b2.executed.ipynb
+	Command being timed: "jupyter nbconvert --to notebook --execute forecasting.ipynb --ExecutePreprocessor.kernel_name=b2-forecast --ExecutePreprocessor.timeout=7200 --output outputs/reports/forecasting.b2.executed.ipynb"
+	User time (seconds): 319.72
+	System time (seconds): 15.70
+	Percent of CPU this job got: 179%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:06.87
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3107812
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 3246
+	Minor (reclaiming a frame) page faults: 7982863
+	Voluntary context switches: 246544
+	Involuntary context switches: 22185
+	Swaps: 0
+	File system inputs: 263328
+	File system outputs: 2016
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
