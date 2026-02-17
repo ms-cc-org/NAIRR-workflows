@@ -1,2 +1,2 @@
 Platform,Instance,CPU/GPU,Time per Epoch (sec),Total Training Time (min),Peak Memory (MB),GPU Utilization,Cost per Run,Speedup vs CPU
-JetStream2,ip-172-31-35-156.us-east-2.compute.internal,GPU,17.293905087799885,2.882354677233328,,See results/benchmarks/gpu_metrics.csv,,
+AWS,ip-172-31-35-156.us-east-2.compute.internal,GPU,17.293905087799885,2.882354677233328,,See results/benchmarks/gpu_metrics.csv,,
