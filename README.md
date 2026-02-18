@@ -146,11 +146,9 @@ It is designed for **non-interactive, automated execution**.
 ---
 
 ### Executed notebook (proof of run)
-**File:** `outputs/reports/forecasting.executed.ipynb`
+**File:** `outputs/reports/*.executed.ipynb`
 
-Generated automatically using: jupyter nbconvert –execute forecasting.ipynb
-
-This provides a full, auditable record of the completed run.
+This files which exists in main and other branches is produced when completed run.
 
 ---
 
@@ -177,10 +175,9 @@ Confirms that the JetStream2 run executed without GPU acceleration, establishing
 ---
 
 ### System snapshot
-**File:** `results/system/js2_env_snapshot.txt`
+**File:** `results/system/*_env_snapshot.txt`
 
 Captures:
-
 - OS version
 - CPU configuration
 - Memory
@@ -249,6 +246,7 @@ These allow evaluation without rerunning the training process.
 ```
 
 ---
+
 ## Next steps: GPU benchmarking across NAIRR resources
 
 The CPU baseline has been established on JetStream2.
@@ -274,11 +272,10 @@ The `main` branch contains the CPU baseline execution performed on JetStream2.
 
 This run establishes the reference performance for comparison with GPU-enabled platforms.
 
-Full execution protocol:
+Full execution flow:
     docs/jetstream2_execution.md
 
 To rerun on an existing JetStream2 GPU instance:
-
     conda env create -f env_exports/js2-forecast.yml
     conda activate js2-gpu-forecast
     bash scripts/run_jetstream2.sh
