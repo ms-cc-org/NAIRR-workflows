@@ -23,21 +23,23 @@ nvidia-smi -L
 
 ## Conda Environment
 
-`conda env create -f env_exports/js2-forecast.yml -n aws-forecast`
-`conda activate aws-forecast`
+```
+conda env create -f env_exports/js2-forecast.yml -n aws-forecast
+conda activate aws-forecast
 
-`conda install -y -c conda-forge jupyter nbconvert ipykernel pandas numpy scikit-learn`
+conda install -y -c conda-forge jupyter nbconvert ipykernel pandas numpy scikit-learn
 
-`conda install -y -c pytorch -c nvidia pytorch pytorch-cuda=12.1 torchvision torchaudio`
+conda install -y -c pytorch -c nvidia pytorch pytorch-cuda=12.1 torchvision torchaudio
 
-`python -m ipykernel install --user --name aws-forecast --display-name "aws-forecast"`
-`jupyter kernelspec list | grep -i aws-forecast`
+python -m ipykernel install --user --name aws-forecast --display-name "aws-forecast"
+jupyter kernelspec list | grep -i aws-forecast
 
-`python - << 'PY'`
-`import torch`
-`print("cuda_available:", torch.cuda.is_available())`
-`print("gpu:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else None)`
-`PY`
+python - << 'PY'
+import torch
+print("cuda_available:", torch.cuda.is_available())
+print("gpu:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else None)
+PY
+```
 
 ## Dataset
 
