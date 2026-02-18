@@ -95,15 +95,28 @@ This enables direct comparison of:
 
 ## What has been executed so far
 
-### CPU baseline run
+The workflow has been executed across three platforms to establish reproducible cross-platform benchmarking.
 
-The workflow was executed end-to-end on:
+### JetStream2 — CPU Baseline
+**Platform:** JetStream2
+**Allocation:** CPU-only
+**Execution:** Non-interactive via nbconvert
+**Branch:** main
+This run establishes the reference CPU baseline for performance comparison.
 
-- **Platform:** JetStream2
-- **Allocation type:** CPU-only
-- **Execution mode:** Non-interactive via `nbconvert`
+### AWS — GPU Execution
 
-This run establishes the **reference baseline** for later GPU comparisons.
+**Platform:** AWS EC2 (g4dn.xlarge, NVIDIA T4)
+**Execution:** Non-interactive via nbconvert
+**Branch:** aws-run-20260211
+This run demonstrates CUDA-enabled execution with GPU utilization logging, system snapshot capture, and benchmark evidence.
+
+### Bridges-2 — NAIRR GPU Execution
+**Platform:** Bridges-2 (PSC)
+**Execution:** Batch + nbconvert
+**Branch:** bridges2-run-20260216
+
+This run validates portability to a NAIRR-supported GPU system with scheduler-based execution and reproducibility artifacts.
 
 ---
 
@@ -191,32 +204,50 @@ These allow evaluation without rerunning the training process.
 
 ---
 
-## How to run the workflow
-
-1. Create the environment: `conda env create -f env_exports/js2-forecast.yml`
-2. Place the dataset in the expected location.
-3. Execute the notebook non-interactively: `jupyter nbconvert –execute forecasting.ipynb`
-4. Review outputs:
-- `outputs/`
-- `results/`
-
----
-
 ## How to reproduce the JetStream2 run
 
 1. Launch a JetStream2 instance.
 2. Clone the repository.
-3. Create the environment:
+3. Create and activate the environment:
+```
     conda env create -f env_exports/js2-forecast.yml
-
-4. Activate:
-   conda activate js2-gpu-forecast
-
-5. Execute:
+    conda activate js2-gpu-forecast
+```
+4. Execute:
    bash scripts/run_jetstream2.sh
 
 ---
 
+## How to Reproduce the AWS Run
+
+1. Launch an AWS GPU instance (e.g., `g4dn.xlarge`).
+2. Clone the repository.
+3. Create and activate the environment:
+```
+   conda env create -f env_exports/js2-forecast.yml -n aws-forecast
+   conda activate aws-forecast
+```
+4. Execute:
+```
+   bash scripts/run_aws.sh
+```
+
+---
+
+## How to Reproduce the Bridges-2 Run
+1. Log into a Bridges-2 GPU node.
+2. Clone the repository.
+3. Create and activate the environment:
+```
+   conda env create -f env_exports/js2-forecast.yml -n bridges2-forecast
+   conda activate bridges2-forecast
+   ```
+4. Submit the batch job:
+```
+   sbatch scripts/run_bridges2.sh
+```
+
+---
 ## Next steps: GPU benchmarking across NAIRR resources
 
 The CPU baseline has been established on JetStream2.
