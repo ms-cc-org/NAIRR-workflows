@@ -1,6 +1,6 @@
 {
   "run_id": "20260217_163853Z",
-  "platform_label": "JetStream2",
+  "platform_label": "Bridges2",
   "instance_label": "v005.ib.bridges2.psc.edu",
   "cpu_or_gpu": "GPU",
   "device": "cuda",
