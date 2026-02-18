@@ -97,20 +97,20 @@ This enables direct comparison of:
 
 The workflow has been executed across three platforms to establish reproducible cross-platform benchmarking.
 
-### JetStream2 — CPU Baseline
+### JetStream2: CPU Baseline
 - **Platform:** JetStream2
 - **Allocation:** CPU-only
 - **Execution:** Non-interactive via nbconvert
 - **Branch:** main
 This run establishes the reference CPU baseline for performance comparison.
 
-### AWS — GPU Execution
+### AWS: GPU Execution
 - **Platform:** AWS EC2 (g4dn.xlarge, NVIDIA T4)
 - **Execution:** Non-interactive via nbconvert
 - **Branch:** aws-run-20260211
 This run demonstrates CUDA-enabled execution with GPU utilization logging, system snapshot capture, and benchmark evidence.
 
-### Bridges-2 — NAIRR GPU Execution
+### Bridges-2: NAIRR GPU Execution
 - **Platform:** Bridges-2 (PSC)
 - **Execution:** Batch + nbconvert
 - **Branch:** bridges2-run-20260216
