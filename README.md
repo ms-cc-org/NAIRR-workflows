@@ -51,6 +51,23 @@ The focus is not on model accuracy, but on **execution performance across system
 
 ---
 
+## Branch Structure
+
+This repository contains platform-specific execution branches:
+
+- `main` → JetStream2 CPU baseline
+- `aws-run-20260211` → AWS GPU execution
+- `bridges2-run-20260216` → Bridges-2 GPU execution
+
+Each branch contains:
+
+- The same ML workflow
+- Platform-specific execution evidence
+- Benchmark logs
+- System metadata
+
+---
+
 ## Benchmarking approach
 
 The workflow is designed to run identically across:
@@ -185,6 +202,21 @@ These allow evaluation without rerunning the training process.
 
 ---
 
+## How to reproduce the JetStream2 run
+
+1. Launch a JetStream2 instance.
+2. Clone the repository.
+3. Create the environment:
+    conda env create -f env_exports/js2-forecast.yml
+
+4. Activate:
+   conda activate js2-gpu-forecast
+
+5. Execute:
+   bash scripts/run_jetstream2.sh
+
+---
+
 ## Next steps: GPU benchmarking across NAIRR resources
 
 The CPU baseline has been established on JetStream2.
@@ -201,6 +233,23 @@ Each run will be compared using:
 - Resource utilization
 - Cost per run
 - Speedup relative to CPU baseline
+
+---
+
+## JetStream2 Reference Run
+
+The `main` branch contains the CPU baseline execution performed on JetStream2.
+
+This run establishes the reference performance for comparison with GPU-enabled platforms.
+
+Full execution protocol:
+    docs/jetstream2_execution.md
+
+To rerun on an existing JetStream2 GPU instance:
+
+    conda env create -f env_exports/js2-forecast.yml
+    conda activate js2-gpu-forecast
+    bash scripts/run_jetstream2.sh
 
 ---
 
