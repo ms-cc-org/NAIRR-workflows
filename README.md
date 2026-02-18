@@ -101,19 +101,22 @@ The workflow has been executed across three platforms to establish reproducible 
 - **Platform:** JetStream2
 - **Allocation:** CPU-only
 - **Execution:** Non-interactive via nbconvert
-- **Branch:** main
+- **Branch:** `main`
+
 This run establishes the reference CPU baseline for performance comparison.
 
 ### AWS: GPU Execution
 - **Platform:** AWS EC2 (g4dn.xlarge, NVIDIA T4)
 - **Execution:** Non-interactive via nbconvert
-- **Branch:** aws-run-20260211
+- **Branch:** `aws-run-20260211`
+
 This run demonstrates CUDA-enabled execution with GPU utilization logging, system snapshot capture, and benchmark evidence.
 
 ### Bridges-2: NAIRR GPU Execution
 - **Platform:** Bridges-2 (PSC)
 - **Execution:** Batch + nbconvert
-- **Branch:** bridges2-run-20260216
+- **Branch:** `bridges2-run-20260216`
+
 This run validates portability to a NAIRR-supported GPU system with scheduler-based execution and reproducibility artifacts.
 
 ---
