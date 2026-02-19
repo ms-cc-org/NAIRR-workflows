@@ -58,6 +58,7 @@ This repository contains platform-specific execution branches:
 - `main` → JetStream2 CPU baseline
 - `aws-run-20260211` → AWS GPU execution
 - `bridges2-run-20260216` → Bridges-2 GPU execution
+- `delta-run-20260218` → Delta GPU baseline
 
 Each branch contains:
 
@@ -119,12 +120,17 @@ This run demonstrates CUDA-enabled execution with GPU utilization logging, syste
 
 This run validates portability to a NAIRR-supported GPU system with scheduler-based execution and reproducibility artifacts.
 
+### Delta: NAIRR GPU Execution
+- **Platform:** Delta (NCSA)
+- **Execution:** Batch + nbconvert
+- **Branch:** `delta-run-20260216`
+
 ---
 
 ## Core components of the workflow
 
 ### Reproducible environment
-**File:** `env_exports/js2-forecast.yml`
+**File:** `env_exports/*forecast.yml`
 
 Defines the exact Python and ML dependencies used during execution.  
 This environment can be recreated on other platforms to ensure consistent results.
