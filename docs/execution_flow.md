@@ -53,7 +53,7 @@ python -m ipykernel install --user --name b2-forecast --display-name "b2-forecas
 
 ## SLURM BATCH script
 
-Refer to (run_forecasting_b2.slurm)[https://github.com/ms-cc-org/NAIRR-workflows/blob/bridges2-run-20260216/run_forecasting_b2.slurm]
+Refer to [run_forecasting_b2.slurm](https://github.com/ms-cc-org/NAIRR-workflows/blob/bridges2-run-20260216/run_forecasting_b2.slurm)
 
 ## Submitting the job and post-submission
 
