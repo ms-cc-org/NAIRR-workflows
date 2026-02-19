@@ -1,6 +1,6 @@
 {
   "run_id": "20260219_192600Z",
-  "platform_label": "JetStream2",
+  "platform_label": "Delta",
   "instance_label": "gpua045.delta.ncsa.illinois.edu",
   "cpu_or_gpu": "CPU",
   "device": "cpu",
