@@ -25,8 +25,8 @@ Verify GPU:
 
     mkdir -p ~/repos
     cd ~/repos
-    git clone https://github.com/<ORG>/<REPO>.git
-    cd <REPO>
+    git clone https://github.com/ms-cc-org/NAIRR-workflows.git
+    cd NAIRR-workflows
     git rev-parse HEAD
 
 ---
