@@ -1,20 +1,20 @@
 [NbConvertApp] Converting notebook forecasting.ipynb to notebook
-[NbConvertApp] Writing 45013 bytes to outputs/reports/forecasting.delta.executed.ipynb
+[NbConvertApp] Writing 45822 bytes to outputs/reports/forecasting.delta.executed.ipynb
 	Command being timed: "jupyter nbconvert --to notebook --execute forecasting.ipynb --ExecutePreprocessor.kernel_name=delta-forecast --ExecutePreprocessor.timeout=7200 --output outputs/reports/forecasting.delta.executed.ipynb"
-	User time (seconds): 1852.59
-	System time (seconds): 41.42
-	Percent of CPU this job got: 718%
-	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:23.70
+	User time (seconds): 1853.20
+	System time (seconds): 40.99
+	Percent of CPU this job got: 720%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:22.89
 	Average shared text size (kbytes): 0
 	Average unshared data size (kbytes): 0
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
-	Maximum resident set size (kbytes): 2980172
+	Maximum resident set size (kbytes): 2985312
 	Average resident set size (kbytes): 0
-	Major (requiring I/O) page faults: 1191
-	Minor (reclaiming a frame) page faults: 8356631
-	Voluntary context switches: 6860831
-	Involuntary context switches: 510677
+	Major (requiring I/O) page faults: 1234
+	Minor (reclaiming a frame) page faults: 8359683
+	Voluntary context switches: 6860146
+	Involuntary context switches: 509224
 	Swaps: 0
 	File system inputs: 0
 	File system outputs: 2016

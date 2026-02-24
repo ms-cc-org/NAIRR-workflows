@@ -1,2 +1,2 @@
 Platform,Instance,CPU/GPU,Time per Epoch (sec),Total Training Time (min),Peak Memory (MB),GPU Utilization,Cost per Run,Speedup vs CPU
-JetStream2,gpua045.delta.ncsa.illinois.edu,CPU,24.15021329615265,4.025069903427114,,N/A (CPU),,
+JetStream2,gpua007.delta.ncsa.illinois.edu,GPU,24.151022151764483,4.025209350480387,,See results/benchmarks/gpu_metrics.csv,,
