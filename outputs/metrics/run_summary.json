@@ -1,6 +1,6 @@
 {
-  "total_training_sec": 92.12477452587336,
-  "total_training_min": 1.535412908764556,
-  "avg_epoch_sec": 9.212279632594436,
-  "avg_throughput_samples_per_sec": 256844.88840507236
+  "total_training_sec": 110.32502169394866,
+  "total_training_min": 1.838750361565811,
+  "avg_epoch_sec": 11.03228851822205,
+  "avg_throughput_samples_per_sec": 214486.95862985868
 }

@@ -31,7 +31,7 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate anvil-forecast
 
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
-nvidia-smi
+nvidia-smi > results/benchmarks/nvidia_smi_anvil.txt 2>&1 || true
 
 mkdir -p results/benchmarks
 nvidia-smi --query-gpu=timestamp,name,utilization.gpu,utilization.memory,memory.used,memory.total \
