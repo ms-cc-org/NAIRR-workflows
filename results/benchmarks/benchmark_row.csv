@@ -1,2 +1,2 @@
 Platform,Instance,CPU/GPU,Time per Epoch (sec),Total Training Time (min),Peak Memory (MB),GPU Utilization,Cost per Run,Speedup vs CPU
-JetStream2,nairr-proposal,CPU,20.583804922900164,3.4306819984830024,,N/A (CPU),,
+JetStream2,h000.anvil.rcac.purdue.edu,GPU,9.212279632594436,1.535412908764556,,See results/benchmarks/gpu_metrics.csv,,
