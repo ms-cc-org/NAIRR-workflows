@@ -295,3 +295,12 @@ The result will be:
 - A clear scaling story from CPU to national AI systems
 - Evidence-based guidance for researchers choosing NAIRR resources
 - A reusable benchmark framework for onboarding new users
+## Choose your platform
+
+Start here: docs/platforms.md
+
+Platform-specific scripts, environment exports, and Slurm job files are under:
+platforms/<platform>/
+
+Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
+runs/<platform>/<date>/
