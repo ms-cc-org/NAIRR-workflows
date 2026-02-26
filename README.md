@@ -51,22 +51,21 @@ The focus is not on model accuracy, but on **execution performance across system
 
 ---
 
-## Branch Structure
+## Platform structure
 
-This repository contains platform-specific execution branches:
+This repository is organized as a single workflow with platform-specific execution packs.
 
-- `main` → JetStream2 CPU baseline
-- `aws-run-20260211` → AWS GPU execution
-- `bridges2-run-20260216` → Bridges-2 GPU execution
+Start here:
+- docs/platforms.md
 
-Each branch contains:
+Platform-specific assets live under:
+- platforms/<platform>/
+  - docs/ (execution guide)
+  - env_exports/ (environment export)
+  - scripts/ or slurm/ (run wrappers or Slurm job scripts)
 
-- The same ML workflow
-- Platform-specific execution evidence
-- Benchmark logs
-- System metadata
-
----
+Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
+- runs/<platform>/<YYYY-MM-DD>/
 
 ## Benchmarking approach
 
