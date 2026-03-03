@@ -30,18 +30,35 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 
 conda activate anvil-forecast
 
+export PLATFORM_LABEL="Anvil"
+export N_CITIES=210
+export EPOCHS=50
+export BATCH_SIZE=8192
+
+export WIDTH=1024
+export DEPTH=8
+export DROPOUT=0.1
+
+export LAGS="1,3,7,14,30,60"
+export ROLLS="7,30"
+
+export NUM_WORKERS=${SLURM_CPUS_PER_TASK:-8}
+export PREFETCH_FACTOR=4
+export SEED=42
+
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
 nvidia-smi > results/benchmarks/nvidia_smi_anvil.txt 2>&1 || true
 
 mkdir -p results/benchmarks
 nvidia-smi --query-gpu=timestamp,name,utilization.gpu,utilization.memory,memory.used,memory.total \
-  --format=csv -l 1 > results/benchmarks/gpu_util_anvil.csv &
+  --format=csv -l 1 > results/benchmarks/gpu_metrics.csv &
 GPU_PID=$!
 
 rm -f outputs/reports/forecasting.anvil.executed.ipynb
 
-/usr/bin/time -v jupyter nbconvert --to notebook --execute forecasting.ipynb \
-  --ExecutePreprocessor.kernel_name=anvil-forecast \
+mkdir -p outputs/reports results/benchmarks outputs/metrics outputs/models
+
+/usr/bin/time -v python -m nbconvert --to notebook --execute forecasting.ipynb \
   --ExecutePreprocessor.timeout=7200 \
   --output outputs/reports/forecasting.anvil.executed.ipynb \
   > results/benchmarks/nbconvert_stdout_anvil.txt \
