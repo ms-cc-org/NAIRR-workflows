@@ -1,0 +1,32 @@
+START: 2026-03-04T15:16:26-06:00
+HOST: gpua035.delta.ncsa.illinois.edu
+PWD:  /u/pnara/repos/NAIRR-workflows
+SLURM Job ID: 16328006
+SLURM Job Name: delta_forecast
+SLURM Allocation: bgii-delta-gpu
+Activated env: delta-forecast
+Python path: /u/pnara/miniconda3/envs/delta-forecast/bin/python
+Conda path: conda ()
+{ 
+    \local cmd="${1-__missing__}";
+    case "$cmd" in 
+        activate | deactivate)
+            __conda_activate "$@"
+        ;;
+        install | update | upgrade | remove | uninstall)
+            __conda_exe "$@" || \return;
+            __conda_activate reactivate
+        ;;
+        *)
+            __conda_exe "$@"
+        ;;
+    esac
+}
+Torch: 2.5.1
+CUDA available: False
+GPU 0: NVIDIA A100-SXM4-40GB (UUID: GPU-749f7cbe-2d28-5700-4498-6d3a6124bd37)
+CUDA_VISIBLE_DEVICES=0
+python: /u/pnara/miniconda3/envs/delta-forecast/bin/python
+torch: 2.5.1
+torch.version.cuda: None
+torch.cuda.is_available: False

@@ -1,2 +1,4 @@
 Platform,Instance,CPU/GPU,Time per Epoch (sec),Total Training Time (min),Peak Memory (MB),GPU Utilization,Cost per Run,Speedup vs CPU
 JetStream2,gpua007.delta.ncsa.illinois.edu,GPU,24.151022151764483,4.025209350480387,,See results/benchmarks/gpu_metrics.csv,,
+20260305_055329Z,Delta,gpua009.delta.ncsa.illinois.edu,GPU,NVIDIA A100-SXM4-40GB,5.199970058444888,2.166696675370137,,See results/benchmarks/gpu_metrics.csv,,
+20260305_061700Z,Delta,gpua030.delta.ncsa.illinois.edu,GPU,NVIDIA A100-SXM4-40GB,4.818355351109058,4.015371870032201,,See results/benchmarks/gpu_metrics.csv,,

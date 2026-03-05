@@ -1,13 +1,38 @@
 {
-  "run_id": "20260224_055123Z",
-  "platform_label": "JetStream2",
-  "instance_label": "gpua007.delta.ncsa.illinois.edu",
+  "run_id": "20260305_061700Z",
+  "platform_label": "Delta",
+  "instance_label": "gpua030.delta.ncsa.illinois.edu",
   "cpu_or_gpu": "GPU",
-  "torch_cuda_available": false,
+  "torch_cuda_available": true,
   "cuda_visible_devices": "0",
-  "device": "cpu",
+  "device": "cuda",
   "seed": 42,
   "n_cities": 25,
   "batch_size": 8192,
-  "epochs": 10
+  "epochs": 50,
+  "n_features": 37,
+  "model_params": 7405571,
+  "num_workers": 8,
+  "pin_memory": true,
+  "prefetch_factor": 4,
+  "amp_enabled": true,
+  "width": 1024,
+  "depth": 8,
+  "dropout": 0.1,
+  "lags": [
+    1,
+    3,
+    7,
+    14,
+    30,
+    60
+  ],
+  "rolls": [
+    7,
+    30
+  ],
+  "n_train_rows": 2420843,
+  "n_val_rows": 64580,
+  "n_test_rows": 85399,
+  "gpu_name": "NVIDIA A100-SXM4-40GB"
 }
