@@ -1,0 +1,5 @@
+Platform,Instance,CPU/GPU,Time per Epoch (sec),Total Training Time (min),Peak Memory (MB),GPU Utilization,Cost per Run,Speedup vs CPU
+Anvil,h000.anvil.rcac.purdue.edu,GPU,11.03228851822205,1.838750361565811,,See results/benchmarks/gpu_metrics.csv,,
+20260302_223549Z,Anvil,h004.anvil.rcac.purdue.edu,GPU,NVIDIA H100 80GB HBM3,4.695606531687081,3.913199011135536,,See results/benchmarks/gpu_metrics.csv,,
+20260303_004026Z,Anvil,h003.anvil.rcac.purdue.edu,GPU,NVIDIA H100 80GB HBM3,4.807708838842809,4.006582856364548,,See results/benchmarks/gpu_metrics.csv,,
+20260303_005030Z,Anvil,h004.anvil.rcac.purdue.edu,GPU,NVIDIA H100 80GB HBM3,4.783355395840481,3.9863673378170157,,See results/benchmarks/gpu_metrics.csv,,

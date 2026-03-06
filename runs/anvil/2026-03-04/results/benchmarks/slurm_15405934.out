@@ -1,0 +1,9 @@
+START: 2026-02-24T16:54:11-05:00
+HOST: h000.anvil.rcac.purdue.edu
+PWD: /home/x-pnara/repos/NAIRR-workflows
+SLURM_JOB_ID: 15405934
+SLURM_JOB_NAME: forecast_gpu
+SLURM_JOB_ACCOUNT: tra250005-ai
+CUDA_VISIBLE_DEVICES: 0
+Job finished
+Tue Feb 24 16:56:21 EST 2026

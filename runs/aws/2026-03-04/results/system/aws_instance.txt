@@ -1,0 +1,2 @@
+AZ=us-east-2c
+INSTANCE_TYPE=g4dn.xlarge

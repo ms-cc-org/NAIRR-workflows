@@ -1,0 +1,7 @@
+START: 2026-02-19T10:30:28-06:00
+HOST: gpua055.delta.ncsa.illinois.edu
+PWD:  /u/pnara/repos/NAIRR-workflows
+SLURM Job ID: 16023291
+SLURM Job Name: delta_forecast
+SLURM Allocation: bgii-delta-gpu
+Before activation: 

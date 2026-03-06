@@ -1,0 +1,27 @@
+START: 2026-02-19T13:21:30-06:00
+HOST: gpua045.delta.ncsa.illinois.edu
+PWD:  /u/pnara/repos/NAIRR-workflows
+SLURM Job ID: 16024996
+SLURM Job Name: delta_forecast
+SLURM Allocation: bgii-delta-gpu
+Activated env: delta-forecast
+Python path: /u/pnara/anaconda3/envs/delta-forecast/bin/python
+Conda path: conda ()
+{ 
+    \local cmd="${1-__missing__}";
+    case "$cmd" in 
+        activate | deactivate)
+            __conda_activate "$@"
+        ;;
+        install | update | upgrade | remove | uninstall)
+            __conda_exe "$@" || \return;
+            __conda_reactivate
+        ;;
+        *)
+            __conda_exe "$@"
+        ;;
+    esac
+}
+Torch: 2.5.1
+CUDA available: False
+END: 2026-02-19T13:26:04-06:00

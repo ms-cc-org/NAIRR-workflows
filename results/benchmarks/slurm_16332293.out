@@ -1,0 +1,56 @@
+START: 2026-03-04T23:50:48-06:00
+HOST: gpua009.delta.ncsa.illinois.edu
+PWD:  /u/pnara/repos/NAIRR-workflows
+SLURM Job ID: 16332293
+SLURM Job Name: delta_forecast
+SLURM Allocation: bgii-delta-gpu
+Activated env: delta-forecast
+Python path: /u/pnara/miniconda3/envs/delta-forecast/bin/python
+Conda path: conda ()
+{ 
+    \local cmd="${1-__missing__}";
+    case "$cmd" in 
+        activate | deactivate)
+            __conda_activate "$@"
+        ;;
+        install | update | upgrade | remove | uninstall)
+            __conda_exe "$@" || \return;
+            __conda_activate reactivate
+        ;;
+        *)
+            __conda_exe "$@"
+        ;;
+    esac
+}
+GPU Info:
+Wed Mar  4 23:50:51 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.148.08             Driver Version: 570.148.08     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-40GB          On  |   00000000:85:00.0 Off |                    0 |
+| N/A   27C    P0             54W /  400W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Torch: 2.5.1+cu121
+CUDA available: True
+GPU: NVIDIA A100-SXM4-40GB
+GPU 0: NVIDIA A100-SXM4-40GB (UUID: GPU-fbcffa6b-ba5e-9068-2655-c5126103b4de)
+CUDA_VISIBLE_DEVICES=0
+python: /u/pnara/miniconda3/envs/delta-forecast/bin/python
+torch: 2.5.1+cu121
+torch.version.cuda: 12.1
+torch.cuda.is_available: True
+gpu: NVIDIA A100-SXM4-40GB
+END: 2026-03-04T23:53:35-06:00
