@@ -1,3 +1,0 @@
-Platform,Instance,CPU/GPU,Time per Epoch (sec),Total Training Time (min),Peak Memory (MB),GPU Utilization,Cost per Run,Speedup vs CPU
-JetStream2,nairr-proposal,CPU,20.583804922900164,3.4306819984830024,,N/A (CPU),,
-20260303_160641Z,JetStream2,nairr-proposal,CPU,,155.0091207934008,64.58732650521682,,N/A (CPU),,
