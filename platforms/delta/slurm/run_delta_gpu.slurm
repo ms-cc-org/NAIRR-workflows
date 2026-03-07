@@ -22,9 +22,9 @@ echo "SLURM Job Name: $SLURM_JOB_NAME"
 echo "SLURM Allocation: $SLURM_JOB_ACCOUNT"
 
 module purge
-module load cuda
+module load cuda/12.8
 
-source /u/pnara/anaconda3/etc/profile.d/conda.sh
+source /u/pnara/miniconda3/etc/profile.d/conda.sh
 
 conda activate delta-forecast || { echo "Failed to activate the environment"; exit 1; }
 
@@ -32,10 +32,15 @@ echo "Activated env: $CONDA_DEFAULT_ENV"
 echo "Python path: $(which python)"
 echo "Conda path: $(which conda)"
 
+echo "GPU Info:"
+nvidia-smi
+
 python - <<EOF
 import torch
 print("Torch:", torch.__version__)
 print("CUDA available:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("GPU:", torch.cuda.get_device_name(0))
 EOF
 
 # Log GPU usage
@@ -46,6 +51,35 @@ GPU_PID=$!
 
 rm -f outputs/reports/forecasting.delta.executed.ipynb
 
+nvidia-smi -L || true
+echo "CUDA_VISIBLE_DEVICES=$CUDA_VISIBLE_DEVICES"
+
+python - <<'PY'
+import sys, torch
+print("python:", sys.executable)
+print("torch:", torch.__version__)
+print("torch.version.cuda:", torch.version.cuda)
+print("torch.cuda.is_available:", torch.cuda.is_available())
+if torch.cuda.is_available():
+    print("gpu:", torch.cuda.get_device_name(0))
+PY
+
+export PLATFORM_LABEL="Delta"
+export N_CITIES=210
+export EPOCHS=50
+export BATCH_SIZE=8192
+
+export WIDTH=1024
+export DEPTH=8
+export DROPOUT=0.1
+
+export LAGS="1,3,7,14,30,60"
+export ROLLS="7,30"
+
+export NUM_WORKERS=${SLURM_CPUS_PER_TASK:-8}
+export PREFETCH_FACTOR=4
+export SEED=42
+
 # Run Jupyter Notebook
 /usr/bin/time -v jupyter nbconvert --to notebook --execute forecasting.ipynb \
   --ExecutePreprocessor.kernel_name=delta-forecast \
@@ -54,8 +88,8 @@ rm -f outputs/reports/forecasting.delta.executed.ipynb
   > results/benchmarks/nbconvert_stdout_delta.txt \
   2> results/benchmarks/nbconvert_stderr_delta.txt
 
-# Kill GPU logger process
 kill $GPU_PID 2>/dev/null || true
+wait $GPU_PID 2>/dev/null || true
 
 # System snapshot
 {
