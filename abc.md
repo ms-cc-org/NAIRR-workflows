@@ -6,6 +6,29 @@ The primary goal is to establish a **CPU baseline** and then compare performance
 
 ---
 
+## Quick Start
+
+Clone the repository and run the workflow on your desired platform.
+
+git clone https://github.com/ms-cc-org/NAIRR-workflows
+cd NAIRR-workflows
+
+Then follow the platform guide:
+
+docs/platforms.md
+
+Example (JetStream2 CPU baseline):
+
+conda env create -f platforms/jetstream2/env_exports/jetstream2-forecast.yml
+conda activate js2-gpu-forecast
+bash platforms/jetstream2/scripts/run_jetstream2.sh
+
+Results will appear in:
+
+runs/<platform>/<date>/
+
+---
+
 ## Relationship to NAIRR
 
 The National AI Research Resource (NAIRR) is designed to:
@@ -70,6 +93,16 @@ and contains:
 - outputs/ (models, metrics, executed notebooks)
 - results/ (benchmarks, system logs, execution evidence)
 
+## Choose your platform
+
+Start here: docs/platforms.md
+
+Platform-specific scripts, environment exports, and Slurm job files are under:
+platforms/<platform>/
+
+Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
+runs/<platform>/<date>/
+
 ## Benchmarking approach
 
 The workflow is designed to run identically across:
@@ -120,7 +153,7 @@ This run demonstrates CUDA-enabled execution with GPU utilization logging, syste
 - **Platform:** Anvil (Purdue)
 - **Execution:** Batch + nbconvert
 
-### Delta: NAIRR GPU Execution
+### Bridges-2: NAIRR GPU Execution
 - **Platform:** Delta (NCSA)
 - **Execution:** Batch + nbconvert
 
@@ -302,13 +335,3 @@ The result will be:
 - A clear scaling story from CPU to national AI systems
 - Evidence-based guidance for researchers choosing NAIRR resources
 - A reusable benchmark framework for onboarding new users
-
-## Choose your platform
-
-Start here: docs/platforms.md
-
-Platform-specific scripts, environment exports, and Slurm job files are under:
-platforms/<platform>/
-
-Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
-runs/<platform>/<date>/
