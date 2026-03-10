@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A tra250023p
+#SBATCH -A tra250023p *REPLACE YOUR ALLOCATION NAME HERE*
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=5

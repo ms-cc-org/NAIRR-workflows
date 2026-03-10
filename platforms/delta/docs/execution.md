@@ -57,6 +57,8 @@ Refer to [run_forecasting_delta.slurm](https://github.com/ms-cc-org/NAIRR-workfl
 
 ## Submitting the job and post-submission
 
+Make sure to use your allocation name in the sbatch script. 
+
 ```
 sbatch run_forecasting_delta.slurm
 squeue -u $USER

@@ -33,8 +33,10 @@ Verify GPU:
 
 ## 3. Create Environment
 
-    conda env create -f env_exports/js2-forecast.yml
+    conda env create -f env_exports/jetstream2-forecast.yml
     conda activate js2-gpu-forecast
+
+    python -m ipykernel install --user --name js2-forecast --display-name "js2-forecast"
 
 Verify GPU inside Python:
 
@@ -57,10 +59,23 @@ Link inside project:
 
 ## 5. Execute Notebook
 
+    These can be edited as you like, but depending on what your purpose is. By increasing the batch size, epochs, making it more complex.
+
+    export PLATFORM_LABEL="JetStream2"
+    export N_CITIES=210
+    export EPOCHS=25
+    export BATCH_SIZE=4096
+    export NUM_WORKERS=8
+    export WIDTH=1024
+    export DEPTH=8
+    export DROPOUT=0.1
+    export LAGS="1,3,7,14,30,60"
+    export ROLLS="7,30"
+
     /usr/bin/time -v jupyter nbconvert \
       --to notebook \
       --execute forecasting.ipynb \
-      --ExecutePreprocessor.kernel_name=js2-gpu-forecast \
+      --ExecutePreprocessor.kernel_name=js2-forecast \
       --ExecutePreprocessor.timeout=7200 \
       --output outputs/reports/forecasting.executed.ipynb \
       2> results/benchmarks/time_forecast_gpu.txt

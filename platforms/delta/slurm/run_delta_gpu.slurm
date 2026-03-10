@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A bgii-delta-gpu
+#SBATCH -A bgii-delta-gpu *REPLACE YOUR ALLOCATION NAME HERE*
 #SBATCH -p gpuA100x4
 #SBATCH -N 1
 #SBATCH --ntasks=1

@@ -80,7 +80,7 @@ create a file:
 
 then, paste `run_anvil_gpu.slurm`. Make changes for allocation name, gpu, memory usage, time as you see fit.
 
-Save it.
+Make sure to use your allocation name in the sbatch script. Save it.
 
 ## Job scheduling
 
