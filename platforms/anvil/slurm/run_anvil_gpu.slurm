@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A tra250005-ai
+#SBATCH -A tra250005-ai *REPLACE YOUR ALLOCATION NAME HERE*
 #SBATCH -p ai
 #SBATCH -N 1
 #SBATCH --ntasks=1
