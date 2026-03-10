@@ -10,8 +10,9 @@ The primary goal is to establish a **CPU baseline** and then compare performance
 
 Clone the repository and run the workflow on your desired platform.
 
-git clone https://github.com/ms-cc-org/NAIRR-workflows
-cd NAIRR-workflows
+`git clone https://github.com/ms-cc-org/NAIRR-workflows`
+
+`cd NAIRR-workflows`
 
 Then follow the platform guide:
 
@@ -89,6 +90,7 @@ Platform-specific assets live under:
 
 Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
 - runs/<platform>/<YYYY-MM-DD>/
+
 and contains:
 - outputs/ (models, metrics, executed notebooks)
 - results/ (benchmarks, system logs, execution evidence)

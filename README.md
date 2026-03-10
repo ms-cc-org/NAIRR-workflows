@@ -66,6 +66,7 @@ Platform-specific assets live under:
 
 Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
 - runs/<platform>/<YYYY-MM-DD>/
+
 and contains:
 - outputs/ (models, metrics, executed notebooks)
 - results/ (benchmarks, system logs, execution evidence)
