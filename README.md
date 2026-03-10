@@ -19,7 +19,7 @@ However, many researchers begin their work on:
 
 - Laptops
 - Campus servers
-- Cloud notebooks (e.g., Colab)
+- Cloud notebooks (such as Colab, jupyterhub)
 
 Moving these workflows onto national AI infrastructure introduces new challenges:
 
@@ -73,7 +73,7 @@ The workflow is designed to run identically across:
 
 1. **JetStream2 (CPU baseline)**
 2. **AWS GPU instances**
-3. **NAIRR GPU systems** (e.g., Delta, Bridges-2)
+3. **NAIRR GPU systems** (Anvil, Delta, Bridges-2)
 
 Each run uses:
 
@@ -100,23 +100,28 @@ The workflow has been executed across three platforms to establish reproducible 
 - **Platform:** JetStream2
 - **Allocation:** CPU-only
 - **Execution:** Non-interactive via nbconvert
-- **Branch:** `main`
 
 This run establishes the reference CPU baseline for performance comparison.
 
 ### AWS: GPU Execution
 - **Platform:** AWS EC2 (g4dn.xlarge, NVIDIA T4)
 - **Execution:** Non-interactive via nbconvert
-- **Branch:** `aws-run-20260211`
 
 This run demonstrates CUDA-enabled execution with GPU utilization logging, system snapshot capture, and benchmark evidence.
 
 ### Bridges-2: NAIRR GPU Execution
 - **Platform:** Bridges-2 (PSC)
 - **Execution:** Batch + nbconvert
-- **Branch:** `bridges2-run-20260216`
 
-This run validates portability to a NAIRR-supported GPU system with scheduler-based execution and reproducibility artifacts.
+### Anvil: NAIRR GPU Execution
+- **Platform:** Anvil (Purdue)
+- **Execution:** Batch + nbconvert
+
+### Bridges-2: NAIRR GPU Execution
+- **Platform:** Delta (NCSA)
+- **Execution:** Batch + nbconvert
+
+These runs validates portability to a NAIRR-supported GPU system with scheduler-based execution and reproducibility artifacts.
 
 ---
 
@@ -294,6 +299,7 @@ The result will be:
 - A clear scaling story from CPU to national AI systems
 - Evidence-based guidance for researchers choosing NAIRR resources
 - A reusable benchmark framework for onboarding new users
+
 ## Choose your platform
 
 Start here: docs/platforms.md
