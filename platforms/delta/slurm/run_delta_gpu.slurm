@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A bgii-delta-gpu *REPLACE YOUR ALLOCATION NAME HERE*
+#SBATCH -A YOUR_ALLOCATION
 #SBATCH -p gpuA100x4
 #SBATCH -N 1
 #SBATCH --ntasks=1
@@ -24,7 +24,7 @@ echo "SLURM Allocation: $SLURM_JOB_ACCOUNT"
 module purge
 module load cuda/12.8
 
-source /u/pnara/miniconda3/etc/profile.d/conda.sh
+source "$(conda info --base)/etc/profile.d/conda.sh"
 
 conda activate delta-forecast || { echo "Failed to activate the environment"; exit 1; }
 
@@ -44,6 +44,7 @@ if torch.cuda.is_available():
 EOF
 
 # Log GPU usage
+mkdir -p outputs/reports results/benchmarks outputs/metrics outputs/models results/system
 nvidia-smi > results/benchmarks/nvidia_smi_delta.txt 2>&1 || true
 nvidia-smi --query-gpu=timestamp,name,utilization.gpu,utilization.memory,memory.used,memory.total \
   --format=csv -l 1 > results/benchmarks/gpu_util_delta.csv 2>/dev/null &

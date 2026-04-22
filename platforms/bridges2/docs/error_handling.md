@@ -1,4 +1,4 @@
-# Bridges2 Error Handling
+# Bridges-2 Error Handling
 
 ### rsync – No Such File or Directory (Code 23)
 
@@ -81,4 +81,3 @@ conda activate bridges2-forecast
 conda activate bridges2-forecast
 conda install -y -c conda-forge tqdm
 ```
-

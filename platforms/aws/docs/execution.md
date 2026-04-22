@@ -5,7 +5,7 @@
 - AWS EC2 instance with GPU (such as g4dn.xlarge)
 - Conda installed
 - `nvidia-smi` working
-- Repository cloned to `~/repos/NAIRR-workflows`
+- Repository cloned
 - Dataset can be done with rsync or mirror from GitHub
 
 ---
@@ -24,12 +24,8 @@ nvidia-smi -L
 ## Conda Environment
 
 ```
-conda env create -f env_exports/js2-forecast.yml -n aws-forecast
+conda env create -f platforms/aws/env_exports/aws-forecast.yml
 conda activate aws-forecast
-
-conda install -y -c conda-forge jupyter nbconvert ipykernel pandas numpy scikit-learn
-
-conda install -y -c pytorch -c nvidia pytorch pytorch-cuda=12.1 torchvision torchaudio
 
 python -m ipykernel install --user --name aws-forecast --display-name "aws-forecast"
 jupyter kernelspec list | grep -i aws-forecast
@@ -83,6 +79,15 @@ echo $! > results/benchmarks/gpu_util.pid
 
 ## Notebook execution
 
+The provided wrapper runs the environment activation, dataset check, metadata
+capture, GPU monitoring, and notebook execution:
+
+```
+bash platforms/aws/scripts/run_aws.sh
+```
+
+Manual execution:
+
 ```
 mkdir -p outputs/reports results/benchmarks
 rm -f outputs/reports/forecasting.aws.executed.ipynb
@@ -120,12 +125,13 @@ tail -n 5 results/benchmarks/gpu_util.csv
 ```
 
 ## Git Commit
+
+Only commit evidence if your workshop workflow asks you to publish run outputs.
+
 ```
-git add .gitignore
 git add outputs/reports/forecasting.aws.executed.ipynb
 git add outputs/metrics outputs/models 2>/dev/null || true
 git add results/benchmarks/nbconvert_*_aws.txt results/benchmarks/gpu_util.csv results/system/aws_*.txt results/system/aws_env_snapshot.txt
 
 git commit -m "AWS GPU run: executed notebook + GPU util + system snapshot"
-git push -u origin aws-run-20260211
 ```

@@ -26,6 +26,8 @@ git checkout -b delta-run-$(date +%Y%m%d)
 
 ## Dataset
 
+The notebook expects the dataset at `7890488/` in the repository root.
+
 **On a terminal in your system:**
 `rsync -avP /path/to/7890488/ <user>@login.delta.ncsa.illinois.edu:/home/<user>/repos/NAIRR-workflows/7890488/`
 
@@ -53,14 +55,24 @@ python -m ipykernel install --user --name delta-forecast --display-name "delta-f
 
 ## SLURM BATCH script
 
-Refer to [run_forecasting_delta.slurm](https://github.com/ms-cc-org/NAIRR-workflows/blob/delta-run-20260216/run_forecasting_delta.slurm)
+Use `platforms/delta/slurm/run_delta_gpu.slurm`.
+
+Before submitting, edit this line:
+
+```
+#SBATCH -A YOUR_ALLOCATION
+```
+
+Confirm the partition, GPU type, CPU count, memory, and time limit match your
+allocation.
 
 ## Submitting the job and post-submission
 
-Make sure to use your allocation name in the sbatch script. 
+Make sure to use your allocation name in the sbatch script.
 
 ```
-sbatch run_forecasting_delta.slurm
+mkdir -p results/benchmarks results/system outputs/reports outputs/metrics outputs/models
+sbatch platforms/delta/slurm/run_delta_gpu.slurm
 squeue -u $USER
 ```
 
@@ -82,7 +94,5 @@ tail -n 40 results/benchmarks/nbconvert_stderr_delta.txt #this shows you the err
 ```
 git add outputs/reports/forecasting.delta.executed.ipynb
 git add results/system/delta_env_snapshot.txt
-#git add -A for the updated files, but make sure you setup your .gitignore to make sure not to upload larger and temp files
 git commit -m "Delta forecast execution and environment snapshot"
-git push
 ```

@@ -4,6 +4,21 @@ This repository demonstrates a **reproducible machine learning workflow** design
 
 The primary goal is to establish a **CPU baseline** and then compare performance across GPU platforms such as cloud providers and NAIRR-supported supercomputing systems.
 
+## Workshop quickstart
+
+If you are using this repository in a workshop, start with:
+
+- [WORKSHOP.md](WORKSHOP.md)
+- [docs/platforms.md](docs/platforms.md)
+
+The workshop path is:
+
+1. Clone the repository on your assigned platform.
+2. Stage the dataset in `7890488/`.
+3. Create the platform Conda environment from `platforms/<platform>/env_exports/`.
+4. Run the platform script or Slurm job.
+5. Check `outputs/` and `results/` for the executed notebook, metrics, logs, and benchmark row.
+
 ---
 
 ## Relationship to NAIRR
@@ -56,16 +71,17 @@ The focus is not on model accuracy, but on **execution performance across system
 This repository is organized as a single workflow with platform-specific execution packs.
 
 Start here:
-- docs/platforms.md
+- `WORKSHOP.md`
+- `docs/platforms.md`
 
 Platform-specific assets live under:
-- platforms/<platform>/
-  - docs/ (execution guide)
-  - env_exports/ (environment export)
-  - scripts/ or slurm/ (run wrappers or Slurm job scripts)
+- `platforms/<platform>/`
+  - `docs/` execution guide
+  - `env_exports/` environment export
+  - `scripts/` or `slurm/` run wrappers or Slurm job scripts
 
 Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
-- runs/<platform>/<YYYY-MM-DD>/
+- `runs/<platform>/<YYYY-MM-DD>/`
 
 and contains:
 - outputs/ (models, metrics, executed notebooks)
@@ -98,7 +114,7 @@ This enables direct comparison of:
 
 ## What has been executed so far
 
-The workflow has been executed across three platforms to establish reproducible cross-platform benchmarking.
+The workflow has been executed across five platforms to establish reproducible cross-platform benchmarking.
 
 ### JetStream2: CPU Baseline
 - **Platform:** JetStream2
@@ -125,17 +141,18 @@ This run demonstrates CUDA-enabled execution with GPU utilization logging, syste
 - **Platform:** Delta (NCSA)
 - **Execution:** Batch + nbconvert
 
-These runs validates portability to a NAIRR-supported GPU system with scheduler-based execution and reproducibility artifacts.
+These runs validate portability to NAIRR-supported GPU systems with scheduler-based execution and reproducibility artifacts.
 
 ---
 
 ## Core components of the workflow
 
-### Reproducible environment
-**File:** `env_exports/js2-forecast.yml`
+### Reproducible environments
+**Folder:** `platforms/<platform>/env_exports/`
 
-Defines the exact Python and ML dependencies used during execution.  
-This environment can be recreated on other platforms to ensure consistent results.
+Defines the Python and ML dependencies captured during platform execution.
+If an export is too platform-specific for a new allocation, use the minimal
+package install shown in `WORKSHOP.md`.
 
 ---
 
@@ -153,10 +170,10 @@ It is designed for **non-interactive, automated execution**.
 
 ---
 
-### Executed notebook (proof of run)
+### Executed notebook proof
 **File:** `outputs/reports/*.executed.ipynb`
 
-This files which exists in main and other branches is produced when completed run.
+This file is produced by a completed notebook execution.
 
 ---
 
@@ -216,11 +233,13 @@ These allow evaluation without rerunning the training process.
 2. Clone the repository.
 3. Create and activate the environment:
 ```
-    conda env create -f env_exports/js2-forecast.yml
+    conda env create -f platforms/jetstream2/env_exports/jetstream2-forecast.yml
     conda activate js2-gpu-forecast
 ```
 4. Execute:
-   bash scripts/run_jetstream2.sh
+```
+   bash platforms/jetstream2/scripts/run_jetstream2.sh
+```
 
 ---
 
@@ -230,63 +249,42 @@ These allow evaluation without rerunning the training process.
 2. Clone the repository.
 3. Create and activate the environment:
 ```
-   conda env create -f env_exports/js2-forecast.yml -n aws-forecast
+   conda env create -f platforms/aws/env_exports/aws-forecast.yml
    conda activate aws-forecast
 ```
 4. Execute:
 ```
-   bash scripts/run_aws.sh
+   bash platforms/aws/scripts/run_aws.sh
 ```
 
 ---
 
 ## How to Reproduce the Bridges-2 Run
-1. Log into a Bridges-2 GPU node.
+1. Log into Bridges-2.
 2. Clone the repository.
 3. Create and activate the environment:
 ```
-   conda env create -f env_exports/js2-forecast.yml -n bridges2-forecast
+   conda env create -f platforms/bridges2/env_exports/bridges2-forecast.yml
    conda activate bridges2-forecast
-   ```
+```
 4. Submit the batch job:
 ```
-   sbatch scripts/run_bridges2.sh
+   sbatch platforms/bridges2/slurm/run_forecasting_b2.slurm
 ```
 
 ---
 
-## Next steps: GPU benchmarking across NAIRR resources
+## How to Reproduce Delta and Anvil Runs
 
-The CPU baseline has been established on JetStream2.
+Use the platform guide, update the `#SBATCH -A YOUR_ALLOCATION` line, and submit:
 
-The next phase is to execute the **same workflow** on:
+```
+sbatch platforms/delta/slurm/run_delta_gpu.slurm
+sbatch platforms/anvil/slurm/run_anvil_gpu.slurm
+```
 
-- AWS GPU instances (e.g., T4, A10G)
-- NAIRR GPU systems (e.g., Delta, Bridges-2)
-
-Each run will be compared using:
-
-- Time per epoch
-- Total training time
-- Resource utilization
-- Cost per run
-- Speedup relative to CPU baseline
-
----
-
-## JetStream2 Reference Run
-
-The `main` branch contains the CPU baseline execution performed on JetStream2.
-
-This run establishes the reference performance for comparison with GPU-enabled platforms.
-
-Full execution flow:
-    docs/jetstream2_execution.md
-
-To rerun on an existing JetStream2 GPU instance:
-    conda env create -f env_exports/js2-forecast.yml
-    conda activate js2-gpu-forecast
-    bash scripts/run_jetstream2.sh
+See `WORKSHOP.md` for the participant workflow and `docs/platforms.md` for all
+platform-specific guides.
 
 ---
 
@@ -306,10 +304,13 @@ The result will be:
 
 ## Choose your platform
 
-Start here: docs/platforms.md
+Start here:
+
+- `WORKSHOP.md`
+- `docs/platforms.md`
 
 Platform-specific scripts, environment exports, and Slurm job files are under:
-platforms/<platform>/
+`platforms/<platform>/`
 
 Execution evidence (executed notebooks + benchmarks + system snapshots) is archived under:
-runs/<platform>/<date>/
+`runs/<platform>/<date>/`

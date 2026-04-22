@@ -26,10 +26,12 @@ git checkout -b bridges2-run-$(date +%Y%m%d)
 
 ## Dataset
 
+The notebook expects the dataset at `7890488/` in the repository root.
+
 **On a terminal in your system:**
 `rsync -avP /path/to/7890488/ <user>@bridges2.psc.edu:/home/<user>/repos/NAIRR-workflows/7890488/`
 
-**On Bridges2 SSH terminal:**
+**On Bridges-2 SSH terminal:**
 ```
 cd ~/repos/NAIRR-workflows
 grep -n "7890488/" .gitignore || printf "\n# dataset (do not commit)\n7890488/\n" >> .gitignore
@@ -53,14 +55,24 @@ python -m ipykernel install --user --name b2-forecast --display-name "b2-forecas
 
 ## SLURM BATCH script
 
-Refer to [run_forecasting_b2.slurm](https://github.com/ms-cc-org/NAIRR-workflows/blob/bridges2-run-20260216/run_forecasting_b2.slurm)
+Use `platforms/bridges2/slurm/run_forecasting_b2.slurm`.
+
+Before submitting, edit this line:
+
+```
+#SBATCH -A YOUR_ALLOCATION
+```
+
+Confirm the partition, GPU type, CPU count, memory, and time limit match your
+allocation.
 
 ## Submitting the job and post-submission
 
-Make sure to use your allocation name in the sbatch script. 
+Make sure to use your allocation name in the sbatch script.
 
 ```
-sbatch run_forecasting_b2.slurm
+mkdir -p results/benchmarks results/system outputs/reports outputs/metrics outputs/models
+sbatch platforms/bridges2/slurm/run_forecasting_b2.slurm
 squeue -u $USER
 ```
 
@@ -82,7 +94,5 @@ tail -n 40 results/benchmarks/nbconvert_stderr_b2.txt #this shows you the error,
 ```
 git add outputs/reports/forecasting.b2.executed.ipynb
 git add results/system/b2_env_snapshot.txt
-#git add -A for the updated files, but make sure you setup your .gitignore to make sure not to upload larger and temp files
 git commit -m "Bridges-2 forecast execution and environment snapshot"
-git push
 ```

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A tra250005-ai *REPLACE YOUR ALLOCATION NAME HERE*
+#SBATCH -A YOUR_ALLOCATION
 #SBATCH -p ai
 #SBATCH -N 1
 #SBATCH --ntasks=1
@@ -23,8 +23,8 @@ echo "SLURM_JOB_ACCOUNT: $SLURM_JOB_ACCOUNT"
 
 module purge
 module load modtree/gpu
-module load anaconda     
-module load cuda       
+module load anaconda
+module load cuda
 
 source "$(conda info --base)/etc/profile.d/conda.sh"
 
@@ -47,16 +47,14 @@ export PREFETCH_FACTOR=4
 export SEED=42
 
 echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+mkdir -p outputs/reports results/benchmarks outputs/metrics outputs/models results/system
 nvidia-smi > results/benchmarks/nvidia_smi_anvil.txt 2>&1 || true
 
-mkdir -p results/benchmarks
 nvidia-smi --query-gpu=timestamp,name,utilization.gpu,utilization.memory,memory.used,memory.total \
   --format=csv -l 1 > results/benchmarks/gpu_metrics.csv &
 GPU_PID=$!
 
 rm -f outputs/reports/forecasting.anvil.executed.ipynb
-
-mkdir -p outputs/reports results/benchmarks outputs/metrics outputs/models
 
 /usr/bin/time -v python -m nbconvert --to notebook --execute forecasting.ipynb \
   --ExecutePreprocessor.timeout=7200 \
@@ -64,9 +62,9 @@ mkdir -p outputs/reports results/benchmarks outputs/metrics outputs/models
   > results/benchmarks/nbconvert_stdout_anvil.txt \
   2> results/benchmarks/nbconvert_stderr_anvil.txt
 
-kill $GPU_PID
+kill $GPU_PID 2>/dev/null || true
+wait $GPU_PID 2>/dev/null || true
 
-mkdir -p results/system
 {
   echo "DATE: $(date -Is)"
   echo "GIT_COMMIT: $(git rev-parse HEAD)"

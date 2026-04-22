@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -A tra250023p *REPLACE YOUR ALLOCATION NAME HERE*
+#SBATCH -A YOUR_ALLOCATION
 #SBATCH -N 1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=5
@@ -23,6 +23,7 @@ module load cuda/12.6.1 || true
 
 export MKL_INTERFACE_LAYER=LP64
 
+source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate bridges2-forecast
 
 python -c "import torch; print(torch.cuda.is_available())"
@@ -45,6 +46,8 @@ export SEED=42
 
 
 nvidia-smi > results/benchmarks/nvidia_smi_b2.txt 2>&1 || true
+
+mkdir -p outputs/reports results/benchmarks outputs/metrics outputs/models results/system
 
 nvidia-smi --query-gpu=timestamp,name,utilization.gpu,utilization.memory,memory.used,memory.total \
   --format=csv -l 1 > results/benchmarks/gpu_util_b2.csv 2>/dev/null &
@@ -80,4 +83,3 @@ kill $GPU_PID 2>/dev/null || true
 jobs -p | xargs -r kill 2>/dev/null || true
 
 echo "END: $(date -Is)"
-

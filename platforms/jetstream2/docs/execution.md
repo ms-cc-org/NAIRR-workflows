@@ -1,9 +1,7 @@
-# JetStream2 GPU Execution Protocol
+# JetStream2 Execution Protocol
 
 This document describes the exact procedure used to execute the forecasting
-workflow on a JetStream2 GPU instance.
-
-This branch (`main`) represents the JetStream2 reference execution.
+workflow on a JetStream2 instance.
 
 ---
 
@@ -33,7 +31,7 @@ Verify GPU:
 
 ## 3. Create Environment
 
-    conda env create -f env_exports/jetstream2-forecast.yml
+    conda env create -f platforms/jetstream2/env_exports/jetstream2-forecast.yml
     conda activate js2-gpu-forecast
 
     python -m ipykernel install --user --name js2-forecast --display-name "js2-forecast"
@@ -45,7 +43,9 @@ Verify GPU inside Python:
 
 ---
 
-## 4. Upload Dataset
+## 4. Stage Dataset
+
+The notebook expects the dataset at `7890488/` in the repository root.
 
 From local machine:
 
@@ -59,7 +59,8 @@ Link inside project:
 
 ## 5. Execute Notebook
 
-    These can be edited as you like, but depending on what your purpose is. By increasing the batch size, epochs, making it more complex.
+    These values can be edited for initial tests or full benchmark runs. By increasing 
+the batch size, epochs, you can make it more of a benchmarking run and complex.
 
     export PLATFORM_LABEL="JetStream2"
     export N_CITIES=210
@@ -104,6 +105,10 @@ Optional GPU monitoring:
     } > results/system/jetstream2_gpu_env.txt
 
 ---
+
+Or use the provided wrapper:
+
+    bash platforms/jetstream2/scripts/run_jetstream2.sh
 
 ## 7. Commit Evidence
 
