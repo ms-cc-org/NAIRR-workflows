@@ -26,6 +26,10 @@ sbatch platforms/anvil/slurm/run_anvil_gpu.slurm
 Before running, stage the dataset at `7890488/` and create the platform Conda
 environment from `platforms/<platform>/env_exports/`.
 
+## Benchmark results
+
+Cross-platform comparison (time per epoch, total time, cost, speedup): docs/benchmark-results.md
+
 ## Evidence (runs)
 
 Completed executions are archived under:
